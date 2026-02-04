@@ -85,8 +85,8 @@ int main(void)
   // Configure joystick
   Joystick_cfg_t joystick_cfg = {
     .adc = &hadc1, // ADC handle from MX_ADC1_Init()
-    .x_channel = ADC_CHANNEL_1, // Internally the ADC_CHannel_1 is connected to pin A1 on the arduino header on the Nucleo board
-    .y_channel = ADC_CHANNEL_2, // Internally the ADC_CHannel_2 is connected to pin A2 on the arduino header on the Nucleo board
+    .x_channel = ADC_CHANNEL_1, // Internally the ADC_Channel_1 is connected to pin A1 on the arduino header on the Nucleo board
+    .y_channel = ADC_CHANNEL_2, // Internally the ADC_Channel_2 is connected to pin A2 on the arduino header on the Nucleo board
     .sampling_time = ADC_SAMPLETIME_47CYCLES_5, // sampling time for ADC in cycles of the ADC clock () this is the miniumn required for the joystick value to stabilise
     .center_x = JOYSTICK_DEFAULT_CENTER_X,
     .center_y = JOYSTICK_DEFAULT_CENTER_Y,
@@ -171,6 +171,8 @@ int main(void)
     }
     
     sprintf(dir_str, "Dir: %s", dir_name);
+
+    printf("%s | %s | %s\n", adc_str, polar_str, dir_str);
     
     LCD_printString(adc_str, 0, 0, 1, 2);
     LCD_printString(polar_str, 0, 14, 1, 2);
